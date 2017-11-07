@@ -16,7 +16,7 @@ global G
 G = []
 # 1:promoter 2:terminator -:the part is reversed
 
-# Function:form all the posible series
+# Function:form all the possible series
 #          it ensures the first part is a promoter
 # Input:curN-current number
 #       totN-the number of recombinanse
