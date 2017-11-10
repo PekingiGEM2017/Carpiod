@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title> GRSM State Designer</title>
+			<script type="text/javascript">
+				window.onload = function()
+				{
+					if (typeof(Storage)=="undefined")
+					{
+						alert("sorry");
+					}
+					else 
+						{
+							btn_tj.addEventListener("click", Draw);
+							btn_cal.addEventListener("click", Calculate);
+						}
+				}
+			 	function Draw()
+				{
+					r = document.getElementById("setnumber").value;
+					Command1 = "<tr> <td> Gene </td>";
+					for(i = 1;i<=r;i++)
+					{
+						Command1+= ("<td>"+i+"</td>")
+
+					}
+					Command1 += "</tr>";
+					for(i=1;i<=5;i++)
+					{
+						Command1+=("<tr> <td> State"+i+"</td>");
+						for(j = 1;j<=r;j++)
+						{
+							p = i*10+j;
+							Command1+="<td> <input type = \"checkbox\" name = \"chk\" value = \"";
+							Command1+=p;
+							Command1+="\"/> </td>";
+						}
+						Command1+="</tr>";
+					}
+					
+					document.getElementById("Form1").insertAdjacentHTML("beforeend",Command1);
+					document.getElementById("btn_cal").style.display="";
+				}
+
+				function Calculate()
+				{
+					/*alert(1);*/
+					C2 = "";
+					var CBL = document.getElementsByName('chk');
+					var w;
+					var Mat = new Array();
+					for(l=1;l<=10;l++)
+					{
+						Mat[l] = new Array();
+					}
+
+					for(w=0;w<CBL.length;w++)
+					{
+						tmp=CBL[w].value;
+						jj = tmp%10;
+						ii = (tmp-jj)/10;
+						if (CBL[w].checked)
+						{
+							Mat[ii][jj] = 1;
+						}
+						else Mat[ii][jj] = 0;
+					}
+					
+					for(x=1;x<=5;x++)
+					{
+						P = "";
+						for(y=1;y<=5;y++)
+						P+=Mat[x][y];
+						xx = parseInt(P,2);
+						C2+=xx;
+						C2+="<br>"
+					}
+
+					document.getElementById("Show").insertAdjacentHTML("beforeend",C2);
+				}
+
+			</script>
+	</head>
+	<body>
+		<div align = "center">
+			<p> GRSM State Designer</p>
+			<img src = "1.png" width = 200><br>
+			<img src = "2.png" width = 200><br>
+			输入要调控基因的数量：<input type = "number" id = "setnumber" value = "5" min = "1" max = "5"/>
+			<button id = "btn_tj"> Submit </button> <br>
+			<button id = "btn_cal" style="display:none"> Let's Rock! </button>
+			<table id = "Form1"></table>
+			<br>
+			<form>
+				<p id = "Show"></p>
+			</form>
+		</div>
+	</body>
+</html>

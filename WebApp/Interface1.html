@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <style>
+          #view-source 
+        {
+          position: fixed;
+          display: block;
+          right: 0;
+          bottom: 0;
+          margin-right: 40px;
+          margin-bottom: 40px;
+          z-index: 900;
+        }
+        </style>
+    </head>
+    <title>Design</title>
+    <style>
+                .mdly-switch{position:relative;z-index:1;vertical-align:middle;display:inline-block;box-sizing:border-box;width:100%;height:24px;margin:0;padding:0;overflow:visible;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mdly-switch.is-upgraded{padding-left:28px}.mdl-switch__input{line-height:24px}.mdly-switch.is-upgraded .mdl-switch__input{position:absolute;width:0;height:0;margin:0;padding:0;opacity:0;-ms-appearance:none;-moz-appearance:none;-webkit-appearance:none;appearance:none;border:none}.mdl-switch__track{background:rgba(0,0,0,.26);position:absolute;left:0;top:5px;height:14px;width:36px;border-radius:14px;cursor:pointer}.mdly-switch.is-checked .mdl-switch__track{background:rgba(255,193,7,.5)}.mdl-switch__track fieldset[disabled] .mdly-switch,.mdly-switch.is-disabled .mdl-switch__track{background:rgba(0,0,0,.12);cursor:auto}.mdl-switch__thumb{background:#fafafa;position:absolute;left:0;top:2px;height:20px;width:20px;border-radius:50%;cursor:pointer;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);transition-duration:.28s;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-property:left}.mdly-switch.is-checked .mdl-switch__thumb{background:rgb(255,193,7);left:16px;box-shadow:0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12)}.mdl-switch__thumb fieldset[disabled] .mdly-switch,.mdly-switch.is-disabled .mdl-switch__thumb{background:#bdbdbd;cursor:auto}.mdl-switch__focus-helper{position:absolute;top:50%;left:50%;-webkit-transform:translate(-4px,-4px);transform:translate(-4px,-4px);display:inline-block;box-sizing:border-box;width:8px;height:8px;border-radius:50%;background-color:transparent}.mdly-switch.is-focused .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(0,0,0,.1);background-color:rgba(0,0,0,.1)}.mdly-switch.is-focused.is-checked .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(255,193,7,.26);background-color:rgba(255,193,7,.26)}.mdl-switch__label{position:relative;cursor:pointer;font-size:16px;line-height:24px;margin:0;left:24px}.mdl-switch__label fieldset[disabled] .mdly-switch,.mdly-switch.is-disabled .mdl-switch__label{color:#bdbdbd;cursor:auto}.mdly-switch__ripple-container{position:absolute;z-index:2;top:-12px;left:-14px;box-sizing:border-box;width:48px;height:48px;border-radius:50%;cursor:pointer;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(circle,#fff,#000);transition-duration:.4s;transition-timing-function:step-end;transition-property:left}.mdly-switch__ripple-container .mdl-ripple{background:rgb(255,193,7)}.mdl-switch__ripple-container fieldset[disabled] .mdly-switch,.mdly-switch.is-disabled .mdl-switch__ripple-container{cursor:auto}fieldset[disabled] .mdly-switch .mdly-switch__ripple-container .mdl-ripple,.mdly-switch.is-disabled .mdl-switch__ripple-container .mdl-ripple{background:0 0}.mdly-switch.is-checked .mdl-switch__ripple-container{left:2px}
+
+
+                .mdlg-switch{position:relative;z-index:1;vertical-align:middle;display:inline-block;box-sizing:border-box;width:100%;height:24px;margin:0;padding:0;overflow:visible;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mdlg-switch.is-upgraded{padding-left:28px}.mdl-switch__input{line-height:24px}.mdlg-switch.is-upgraded .mdl-switch__input{position:absolute;width:0;height:0;margin:0;padding:0;opacity:0;-ms-appearance:none;-moz-appearance:none;-webkit-appearance:none;appearance:none;border:none}.mdl-switch__track{background:rgba(0,0,0,.26);position:absolute;left:0;top:5px;height:14px;width:36px;border-radius:14px;cursor:pointer}.mdlg-switch.is-checked .mdl-switch__track{background:rgba(76,175,80,.5)}.mdl-switch__track fieldset[disabled] .mdlg-switch,.mdlg-switch.is-disabled .mdl-switch__track{background:rgba(0,0,0,.12);cursor:auto}.mdl-switch__thumb{background:#fafafa;position:absolute;left:0;top:2px;height:20px;width:20px;border-radius:50%;cursor:pointer;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);transition-duration:.28s;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-property:left}.mdlg-switch.is-checked .mdl-switch__thumb{background:rgb(76,175,80);left:16px;box-shadow:0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12)}.mdl-switch__thumb fieldset[disabled] .mdlg-switch,.mdlg-switch.is-disabled .mdl-switch__thumb{background:#bdbdbd;cursor:auto}.mdl-switch__focus-helper{position:absolute;top:50%;left:50%;-webkit-transform:translate(-4px,-4px);transform:translate(-4px,-4px);display:inline-block;box-sizing:border-box;width:8px;height:8px;border-radius:50%;background-color:transparent}.mdlg-switch.is-focused .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(0,0,0,.1);background-color:rgba(0,0,0,.1)}.mdlg-switch.is-focused.is-checked .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(76,175,80,.26);background-color:rgba(76,175,80,.26)}.mdl-switch__label{position:relative;cursor:pointer;font-size:16px;line-height:24px;margin:0;left:24px}.mdl-switch__label fieldset[disabled] .mdlg-switch,.mdlg-switch.is-disabled .mdl-switch__label{color:#bdbdbd;cursor:auto}.mdlg-switch__ripple-container{position:absolute;z-index:2;top:-12px;left:-14px;box-sizing:border-box;width:48px;height:48px;border-radius:50%;cursor:pointer;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(circle,#fff,#000);transition-duration:.4s;transition-timing-function:step-end;transition-property:left}.mdlg-switch__ripple-container .mdl-ripple{background:rgb(76,175,80)}.mdl-switch__ripple-container fieldset[disabled] .mdlg-switch,.mdlg-switch.is-disabled .mdl-switch__ripple-container{cursor:auto}fieldset[disabled] .mdlg-switch .mdlg-switch__ripple-container .mdl-ripple,.mdlg-switch.is-disabled .mdl-switch__ripple-container .mdl-ripple{background:0 0}.mdlg-switch.is-checked .mdl-switch__ripple-container{left:2px}
+
+                .mdlr-switch{position:relative;z-index:1;vertical-align:middle;display:inline-block;box-sizing:border-box;width:100%;height:24px;margin:0;padding:0;overflow:visible;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.mdlr-switch.is-upgraded{padding-left:28px}.mdl-switch__input{line-height:24px}.mdlr-switch.is-upgraded .mdl-switch__input{position:absolute;width:0;height:0;margin:0;padding:0;opacity:0;-ms-appearance:none;-moz-appearance:none;-webkit-appearance:none;appearance:none;border:none}.mdl-switch__track{background:rgba(0,0,0,.26);position:absolute;left:0;top:5px;height:14px;width:36px;border-radius:14px;cursor:pointer}.mdlr-switch.is-checked .mdl-switch__track{background:rgba(233,30,99,.5)}.mdl-switch__track fieldset[disabled] .mdlr-switch,.mdlr-switch.is-disabled .mdl-switch__track{background:rgba(0,0,0,.12);cursor:auto}.mdl-switch__thumb{background:#fafafa;position:absolute;left:0;top:2px;height:20px;width:20px;border-radius:50%;cursor:pointer;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);transition-duration:.28s;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-property:left}.mdlr-switch.is-checked .mdl-switch__thumb{background:rgb(233,30,99);left:16px;box-shadow:0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12)}.mdl-switch__thumb fieldset[disabled] .mdlr-switch,.mdlr-switch.is-disabled .mdl-switch__thumb{background:#bdbdbd;cursor:auto}.mdl-switch__focus-helper{position:absolute;top:50%;left:50%;-webkit-transform:translate(-4px,-4px);transform:translate(-4px,-4px);display:inline-block;box-sizing:border-box;width:8px;height:8px;border-radius:50%;background-color:transparent}.mdlr-switch.is-focused .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(0,0,0,.1);background-color:rgba(0,0,0,.1)}.mdlr-switch.is-focused.is-checked .mdl-switch__focus-helper{box-shadow:0 0 0 20px rgba(233,30,99,.26);background-color:rgba(233,30,99,.26)}.mdl-switch__label{position:relative;cursor:pointer;font-size:16px;line-height:24px;margin:0;left:24px}.mdl-switch__label fieldset[disabled] .mdlr-switch,.mdlr-switch.is-disabled .mdl-switch__label{color:#bdbdbd;cursor:auto}.mdlr-switch__ripple-container{position:absolute;z-index:2;top:-12px;left:-14px;box-sizing:border-box;width:48px;height:48px;border-radius:50%;cursor:pointer;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(circle,#fff,#000);transition-duration:.4s;transition-timing-function:step-end;transition-property:left}.mdlr-switch__ripple-container .mdl-ripple{background:rgb(233,30,99)}.mdl-switch__ripple-container fieldset[disabled] .mdlr-switch,.mdlr-switch.is-disabled .mdl-switch__ripple-container{cursor:auto}fieldset[disabled] .mdlr-switch .mdlr-switch__ripple-container .mdl-ripple,.mdlr-switch.is-disabled .mdl-switch__ripple-container .mdl-ripple{background:0 0}.mdlr-switch.is-checked .mdl-switch__ripple-container{left:2px}
+
+
+
+            </style>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="mdl/material.css">                
+    <link rel="stylesheet" href="mdl/material.min.css">  </link>
+    <link rel="stylesheet" href="styles.css">  
+    <link rel="stylesheet" href="devsite-google-blue.css">  
+    <script src="mdl/material.min.js"></script>
+    <script src="devsite.js"></script>    
+    <script src="foot-closure.js"></script>
+    <script src="prettify-bundle.js"></script>
+    <script src="jquery_ui-bundle.js"></script>
+    <script src="jquery_2.1.1.min.js"></script>  
+    <script src="framebox.js"></script>  
+    <script src="mdl/material.js"></script> 
+
+    <body>
+      <!-- Numeric Textfield with Floating Label -->
+
+      <h5 align = "center"> <br> </h5>
+
+      <form action="#" align = "center">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Name the project...</label>
+        </div>
+      </form>
+
+      <form action="#" align = "center">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Decide the number of states...</label>
+        </div>
+      </form>
+
+      <form action="#" align = "center">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+          <label class="mdl-textfield__label" for="sample4">Decide the number of inputs...</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+      </form>
+
+      <form action="#" align = "center">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+          <label class="mdl-textfield__label" for="sample4">Decide the number of genes...</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+      </form>
+
+      <table align = "center">
+        <tr>
+          <td>
+            <div align = "center">
+        <h5 align = "center"> State 1 </h5>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">  </th>
+            <th>Gene 1</th>
+            <th>Gene 2</th>
+            <th>Gene 3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            
+            <td class="mdl-data-table__cell--non-numeric">0/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" >
+                <input type="checkbox" id="switch-1" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+                <input type="checkbox" id="switch-2" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
+                <input type="checkbox" id="switch-3" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">0/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
+                <input type="checkbox" id="switch-4" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-5">
+                <input type="checkbox" id="switch-5" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-6">
+                <input type="checkbox" id="switch-6" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-7">
+                <input type="checkbox" id="switch-7" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-8">
+                <input type="checkbox" id="switch-8" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-9">
+                <input type="checkbox" id="switch-9" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-10">
+                <input type="checkbox" id="switch-10" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-11">
+                <input type="checkbox" id="switch-11" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-12">
+                <input type="checkbox" id="switch-12" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+          </td>
+        <td>
+        <div align = "center">
+        <h5 align = "center"> State 2 </h5>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">  </th>
+            <th>Gene 1</th>
+            <th>Gene 2</th>
+            <th>Gene 3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">0/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t1" >
+                <input type="checkbox" id="switch-t1" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t2">
+                <input type="checkbox" id="switch-t2" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t3">
+                <input type="checkbox" id="switch-t3" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">0/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t4">
+                <input type="checkbox" id="switch-t4" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t5">
+                <input type="checkbox" id="switch-t5" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t6">
+                <input type="checkbox" id="switch-t6" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t7">
+                <input type="checkbox" id="switch-t7" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t8">
+                <input type="checkbox" id="switch-t8" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t9">
+                <input type="checkbox" id="switch-t9" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t10">
+                <input type="checkbox" id="switch-t10" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t11">
+                <input type="checkbox" id="switch-t11" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-t12">
+                <input type="checkbox" id="switch-t12" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    </td>
+
+    <td>
+    <div align = "center">
+        <h5 align = "center"> State 3 </h5>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">  </th>
+            <th>Gene 1</th>
+            <th>Gene 2</th>
+            <th>Gene 3</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">0/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr1" >
+                <input type="checkbox" id="switch-tr1" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr2">
+                <input type="checkbox" id="switch-tr2" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr3">
+                <input type="checkbox" id="switch-tr3" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">0/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr4">
+                <input type="checkbox" id="switch-tr4" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr5">
+                <input type="checkbox" id="switch-tr5" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr6">
+                <input type="checkbox" id="switch-tr6" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdlr-data-table__cell--non-numeric">1/0</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr7">
+                <input type="checkbox" id="switch-tr7" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr8">
+                <input type="checkbox" id="switch-tr8" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr9">
+                <input type="checkbox" id="switch-tr9" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1/1</td>
+            <td>
+              <label class="mdlr-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr10">
+                <input type="checkbox" id="switch-tr10" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdly-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr11">
+                <input type="checkbox" id="switch-tr11" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+            <td>
+              <label class="mdlg-switch mdl-js-switch mdl-js-ripple-effect" for="switch-tr12">
+                <input type="checkbox" id="switch-tr12" class="mdl-switch__input">
+                <span class="mdl-switch__label"></span>
+              </label>
+            </td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+          </td>
+        </tr>
+      </table>
+        
+    <h5 align = "center"> <br> </h5>
+
+    <div  align = "center" >
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--red mdl-button--accent">
+          Design!
+      </button>
+    </div>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
